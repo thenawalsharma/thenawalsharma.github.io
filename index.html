@@ -1,639 +1,1184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nawal Kishor Sharma – Senior Software Developer</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --bg: #f9f8f6;
-    --surface: #ffffff;
-    --border: rgba(0,0,0,0.1);
-    --text: #1a1a1a;
-    --muted: #666;
-    --accent: #185FA5;
-    --accent-light: #E6F1FB;
-    --accent-mid: #B5D4F4;
-    --teal: #0F6E56;
-    --teal-light: #E1F5EE;
-    --purple: #534AB7;
-    --purple-light: #EEEDFE;
-    --amber: #854F0B;
-    --amber-light: #FAEEDA;
-    --radius: 12px;
-    --radius-sm: 8px;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #1a1a1a;
-      --surface: #252525;
-      --border: rgba(255,255,255,0.12);
-      --text: #f0ede8;
-      --muted: #999;
-      --accent: #378ADD;
-      --accent-light: #042C53;
-      --accent-mid: #0C447C;
-      --teal: #1D9E75;
-      --teal-light: #04342C;
-      --purple: #7F77DD;
-      --purple-light: #26215C;
-      --amber: #EF9F27;
-      --amber-light: #412402;
-    }
-  }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    min-height: 100vh;
-  }
-  .layout {
-    display: grid;
-    grid-template-columns: 260px 1fr;
-    min-height: 100vh;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nawal Sharma - Senior .NET Azure Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  /* SIDEBAR */
-  .sidebar {
-    background: var(--surface);
-    border-right: 0.5px solid var(--border);
-    padding: 2rem 1.5rem;
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  .avatar {
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
-    background: var(--accent-light);
-    color: var(--accent);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    flex-shrink: 0;
-  }
-  .name-block { margin-bottom: 4px; }
-  .name-block h1 { font-size: 16px; font-weight: 600; color: var(--text); line-height: 1.3; }
-  .name-block p { font-size: 12px; color: var(--muted); margin-top: 2px; }
-  .contact-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-  .contact-list li { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); }
-  .contact-list li i { font-size: 14px; color: var(--accent); flex-shrink: 0; }
-  .sidebar-section { }
-  .sidebar-label { font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
-  .nav-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
-  .nav-btn {
-    display: flex; align-items: center; gap: 10px;
-    padding: 8px 10px;
-    border-radius: var(--radius-sm);
-    cursor: pointer; border: none; background: transparent;
-    color: var(--muted); font-size: 13px; text-align: left; width: 100%;
-    transition: background 0.15s, color 0.15s;
-  }
-  .nav-btn:hover { background: var(--accent-light); color: var(--accent); }
-  .nav-btn.active { background: var(--accent-light); color: var(--accent); font-weight: 500; }
-  .nav-btn i { font-size: 15px; flex-shrink: 0; }
-  .badge-row { display: flex; flex-wrap: wrap; gap: 6px; }
-  .badge {
-    font-size: 11px; padding: 3px 8px; border-radius: 20px;
-    background: var(--teal-light); color: var(--teal); font-weight: 500;
-  }
-  .badge.purple { background: var(--purple-light); color: var(--purple); }
-  .badge.accent { background: var(--accent-light); color: var(--accent); }
-  .badge.amber { background: var(--amber-light); color: var(--amber); }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f4c75 100%);
+            color: #e0e0e0;
+            scroll-behavior: smooth;
+        }
 
-  /* MAIN */
-  .main { padding: 2rem; overflow-y: auto; }
-  .section { display: none; }
-  .section.active { display: block; }
-  .section-title {
-    font-size: 22px; font-weight: 600; color: var(--text); margin-bottom: 4px;
-  }
-  .section-sub { font-size: 14px; color: var(--muted); margin-bottom: 1.5rem; }
-  .divider { height: 0.5px; background: var(--border); margin: 1.5rem 0; }
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(96, 165, 250, 0.3);
+        }
 
-  /* CARDS */
-  .card {
-    background: var(--surface); border: 0.5px solid var(--border);
-    border-radius: var(--radius); padding: 1.25rem;
-    margin-bottom: 1rem;
-  }
-  .card-title { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
-  .card-sub { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
-  .card-meta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 10px; }
-  .meta-chip { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--muted); }
-  .meta-chip i { font-size: 13px; }
-  .card-desc { font-size: 13px; color: var(--muted); line-height: 1.7; }
-  .card-resp { margin-top: 10px; }
-  .card-resp ul { padding-left: 18px; }
-  .card-resp li { font-size: 13px; color: var(--muted); margin-bottom: 4px; }
-  .tech-pills { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
-  .tech-pill {
-    font-size: 11px; padding: 2px 8px; border-radius: 20px;
-    background: var(--accent-light); color: var(--accent);
-    border: 0.5px solid var(--accent-mid);
-  }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-  /* SUMMARY */
-  .summary-highlight {
-    background: var(--accent-light); border-left: 3px solid var(--accent);
-    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-    padding: 1rem 1.25rem; margin-bottom: 1rem;
-    font-size: 14px; color: var(--text); line-height: 1.7;
-  }
-  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; margin-bottom: 1.5rem; }
-  .stat-card {
-    background: var(--surface); border: 0.5px solid var(--border);
-    border-radius: var(--radius-sm); padding: 1rem; text-align: center;
-  }
-  .stat-num { font-size: 24px; font-weight: 600; color: var(--accent); }
-  .stat-label { font-size: 12px; color: var(--muted); margin-top: 2px; }
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
 
-  /* SKILLS TABLE */
-  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .skill-group { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius-sm); padding: 1rem; }
-  .skill-group-title { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-bottom: 10px; }
-  .skill-item { font-size: 13px; color: var(--text); padding: 4px 0; border-bottom: 0.5px solid var(--border); }
-  .skill-item:last-child { border-bottom: none; }
+        nav a {
+            color: #93c5fd;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
 
-  /* TIMELINE */
-  .timeline { position: relative; padding-left: 28px; }
-  .timeline::before { content: ''; position: absolute; left: 9px; top: 0; bottom: 0; width: 1px; background: var(--border); }
-  .tl-item { position: relative; margin-bottom: 1.5rem; }
-  .tl-dot { position: absolute; left: -24px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); border: 2px solid var(--surface); box-shadow: 0 0 0 1px var(--accent); }
-  .tl-company { font-size: 14px; font-weight: 500; color: var(--text); }
-  .tl-role { font-size: 13px; color: var(--accent); }
-  .tl-period { font-size: 12px; color: var(--muted); margin-top: 1px; }
+        nav a:hover {
+            color: #3b82f6;
+        }
 
-  /* AWARDS */
-  .award-card {
-    display: flex; align-items: flex-start; gap: 12px;
-    background: var(--surface); border: 0.5px solid var(--border);
-    border-radius: var(--radius); padding: 1rem; margin-bottom: 1rem;
-  }
-  .award-icon {
-    width: 36px; height: 36px; border-radius: 50%;
-    background: var(--amber-light); color: var(--amber);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 16px; flex-shrink: 0;
-  }
-  .award-title { font-size: 14px; font-weight: 500; color: var(--text); }
-  .award-org { font-size: 12px; color: var(--muted); margin-top: 2px; }
-  .award-desc { font-size: 13px; color: var(--muted); margin-top: 4px; }
+        /* Company Logo Styles */
+        .company-logo {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 0.7rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
 
-  /* CERT / EDU */
-  .edu-card {
-    background: var(--surface); border: 0.5px solid var(--border);
-    border-radius: var(--radius); padding: 1rem; margin-bottom: 1rem;
-    display: flex; justify-content: space-between; align-items: flex-start;
-  }
+        .company-logo.kyndryl {
+            background: linear-gradient(135deg, #003366, #0066cc);
+            color: white;
+            font-size: 0.8rem;
+        }
 
-  /* PRINT */
-  @media print { .sidebar { position: static; height: auto; } }
+        .company-logo.capgemini {
+            background: linear-gradient(135deg, #ef7f1a, #ff9f1c);
+            color: white;
+            font-weight: bold;
+        }
 
-  /* RESPONSIVE */
-  @media (max-width: 680px) {
-    .layout { grid-template-columns: 1fr; }
-    .sidebar { position: static; height: auto; border-right: none; border-bottom: 0.5px solid var(--border); }
-    .nav-list { flex-direction: row; flex-wrap: wrap; }
-    .skills-grid { grid-template-columns: 1fr; }
-  }
-</style>
+        .company-logo.cgi {
+            background: linear-gradient(135deg, #003d82, #0052a3);
+            color: white;
+            font-size: 0.75rem;
+        }
+
+        .company-logo.autosense {
+            background: linear-gradient(135deg, #2c5282, #2d5a8c);
+            color: white;
+            font-size: 0.7rem;
+        }
+
+        /* Project Image Container */
+        .project-image {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2));
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.05) 50%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%); }
+            100% { transform: translateX(100%) translateY(100%); }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 8rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            text-align: left;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            color: #93c5fd;
+            margin-bottom: 0.5rem;
+        }
+
+        .designation {
+            font-size: 1.1rem;
+            color: #3b82f6;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .experience-badge {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid #3b82f6;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            color: #3b82f6;
+            font-weight: 600;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #3b82f6;
+            border: 2px solid #3b82f6;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .hero-avatar {
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .avatar {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.4);
+        }
+
+        .avatar::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Career Timeline */
+        .timeline-section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, #3b82f6, #8b5cf6);
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: 0;
+            margin-right: 52%;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 52%;
+            margin-right: 0;
+            text-align: left;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: #3b82f6;
+            border: 4px solid #0f172a;
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        .timeline-content {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 10px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .timeline-content:hover {
+            background: rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.6);
+            transform: translateY(-5px);
+        }
+
+        .timeline-date {
+            color: #3b82f6;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-company {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-role {
+            font-size: 1.1rem;
+            color: #93c5fd;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .timeline-description {
+            color: #cbd5e1;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .company-badge {
+            display: inline-block;
+            background: rgba(139, 92, 246, 0.2);
+            border: 1px solid #8b5cf6;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-top: 0.8rem;
+            color: #8b5cf6;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(15, 76, 117, 0.4));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .projects-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+        }
+
+        .project-card:hover {
+            border-color: rgba(59, 130, 246, 0.6);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+        }
+
+        .project-card-content {
+            padding: 2rem;
+        }
+
+        .project-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .project-company {
+            color: #8b5cf6;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .project-duration {
+            color: #93c5fd;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: #cbd5e1;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .skills-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .skill-category {
+            background: rgba(59, 130, 246, 0.05);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 10px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .skill-category:hover {
+            background: rgba(59, 130, 246, 0.15);
+            border-color: rgba(59, 130, 246, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            color: #3b82f6;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .skill-item:last-child {
+            border-bottom: none;
+        }
+
+        .skill-name {
+            color: #93c5fd;
+            font-weight: 500;
+        }
+
+        .skill-level {
+            color: #3b82f6;
+            font-weight: 600;
+        }
+
+        /* Awards Section */
+        .awards-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, rgba(15, 76, 117, 0.3), rgba(15, 23, 42, 0.8));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .awards-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 0% 100%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .award-card {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .award-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(139, 92, 246, 0.6);
+            box-shadow: 0 15px 35px rgba(139, 92, 246, 0.2);
+        }
+
+        .award-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .award-title {
+            color: #8b5cf6;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .award-company {
+            color: #93c5fd;
+            font-size: 0.9rem;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(139, 92, 246, 0.05));
+            border-radius: 10px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(59, 130, 246, 0.08);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            background: rgba(59, 130, 246, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #93c5fd;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #8b5cf6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                padding: 6rem 1rem 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .avatar {
+                width: 200px;
+                height: 200px;
+                font-size: 50px;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 60px;
+                margin-right: 0;
+                text-align: left;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
 <body>
-<div class="layout">
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Nawal Sharma</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#timeline">Career</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#awards">Awards</a></li>
+        </ul>
+    </nav>
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <div>
-      <div class="avatar">NK</div>
-      <div style="margin-top: 12px;" class="name-block">
-        <h1>Nawal Kishor Sharma</h1>
-        <p>Senior Associate II · 9.8+ yrs exp</p>
-      </div>
-    </div>
-
-    <ul class="contact-list">
-      <li><i class="ti ti-phone" aria-hidden="true"></i>+91 9955812430</li>
-      <li><i class="ti ti-mail" aria-hidden="true"></i>thenawalsharma@gmail.com</li>
-      <li><i class="ti ti-map-pin" aria-hidden="true"></i>Bangalore, Karnataka</li>
-    </ul>
-
-    <div class="sidebar-section">
-      <div class="sidebar-label">Navigation</div>
-      <ul class="nav-list" id="nav">
-        <li><button class="nav-btn active" data-tab="summary" onclick="switchTab('summary',this)"><i class="ti ti-user" aria-hidden="true"></i>Summary</button></li>
-        <li><button class="nav-btn" data-tab="experience" onclick="switchTab('experience',this)"><i class="ti ti-briefcase" aria-hidden="true"></i>Experience</button></li>
-        <li><button class="nav-btn" data-tab="skills" onclick="switchTab('skills',this)"><i class="ti ti-code" aria-hidden="true"></i>Skills</button></li>
-        <li><button class="nav-btn" data-tab="career" onclick="switchTab('career',this)"><i class="ti ti-timeline" aria-hidden="true"></i>Career timeline</button></li>
-        <li><button class="nav-btn" data-tab="awards" onclick="switchTab('awards',this)"><i class="ti ti-trophy" aria-hidden="true"></i>Awards</button></li>
-        <li><button class="nav-btn" data-tab="education" onclick="switchTab('education',this)"><i class="ti ti-school" aria-hidden="true"></i>Education</button></li>
-      </ul>
-    </div>
-
-    <div class="sidebar-section">
-      <div class="sidebar-label">Certifications</div>
-      <div class="badge-row">
-        <span class="badge accent">AZ-900</span>
-        <span class="badge purple">AZ-204</span>
-      </div>
-    </div>
-
-    <div class="sidebar-section">
-      <div class="sidebar-label">Industries</div>
-      <div class="badge-row">
-        <span class="badge">Automotive</span>
-        <span class="badge">Finance</span>
-      </div>
-    </div>
-  </aside>
-
-  <!-- MAIN CONTENT -->
-  <main class="main">
-
-    <!-- SUMMARY -->
-    <section id="summary" class="section active">
-      <h2 class="section-title">Professional summary</h2>
-      <p class="section-sub">Senior software developer focused on Microsoft cloud & enterprise solutions</p>
-
-      <div class="stat-grid">
-        <div class="stat-card"><div class="stat-num">9.8+</div><div class="stat-label">Years experience</div></div>
-        <div class="stat-card"><div class="stat-num">8</div><div class="stat-label">Projects delivered</div></div>
-        <div class="stat-card"><div class="stat-num">4</div><div class="stat-label">Companies</div></div>
-        <div class="stat-card"><div class="stat-num">AZ-900</div><div class="stat-label">Azure certified</div></div>
-      </div>
-
-      <div class="summary-highlight">
-        Over 9.8 years of experience in designing, developing, and implementing enterprise applications using Microsoft technologies. Currently contributing to digital transformation initiatives for <strong>Mercedes-Benz</strong>, building scalable Azure-based solutions, APIs, and CRM integrations for global business operations.
-      </div>
-
-      <div class="card">
-        <div class="card-title">Core competencies</div>
-        <div style="margin-top:12px;" class="badge-row">
-          <span class="badge accent">C# / .NET Core</span>
-          <span class="badge accent">Web API</span>
-          <span class="badge accent">Microsoft Azure</span>
-          <span class="badge accent">Microservices</span>
-          <span class="badge purple">Redis Cache</span>
-          <span class="badge purple">Kafka</span>
-          <span class="badge purple">PostgreSQL</span>
-          <span class="badge purple">SQL Server</span>
-          <span class="badge">React</span>
-          <span class="badge">CI/CD</span>
-          <span class="badge">Agile / Scrum</span>
-          <span class="badge amber">SonarQube</span>
-          <span class="badge amber">GitHub Copilot</span>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <span class="experience-badge">9.8+ Years Experience</span>
+            <h1>Nawal Sharma</h1>
+            <p class="designation">Senior .NET Azure Developer</p>
+            <p style="font-size: 1rem; color: #cbd5e1; margin-bottom: 1.5rem;">
+                Designing & architecting enterprise-grade cloud solutions with Azure, driving digital transformation initiatives at Mercedes-Benz. Specializing in microservices, API development, and cloud-native applications.
+            </p>
+            <div class="hero-cta">
+                <button class="btn btn-primary" onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})">View Projects</button>
+                <button class="btn btn-secondary" onclick="window.open('https://linkedin.com/in/nawal-sharma', '_blank')">Connect</button>
+            </div>
+            <div style="margin-top: 2rem; color: #93c5fd;">
+                <p>📍 Bangalore, India | 🎯 Open to opportunities at MNC Product Companies</p>
+            </div>
         </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Career objective</div>
-        <p class="card-desc" style="margin-top:6px;">Seeking a challenging career opportunity with rewarding returns in an esteemed organization, offering an interesting work environment to apply experience and knowledge and contribute to organizational growth.</p>
-      </div>
+        <div class="hero-avatar">
+            <div class="avatar">💻</div>
+        </div>
     </section>
 
-    <!-- EXPERIENCE -->
-    <section id="experience" class="section">
-      <h2 class="section-title">Project experience</h2>
-      <p class="section-sub">8 projects across 4 organizations spanning automotive, insurance, and fintech</p>
-
-      <div class="card">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
-          <div>
-            <div class="card-title">ZST Application – Mercedes-Benz India & Germany</div>
-            <div class="card-sub">Kyndryl / Capgemini · Senior Software Developer (Manager C2)</div>
-          </div>
-          <span class="badge accent">Current</span>
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stat-card">
+            <div class="stat-number">10+</div>
+            <div class="stat-label">Years in Industry</div>
         </div>
-        <div class="card-meta">
-          <span class="meta-chip"><i class="ti ti-calendar" aria-hidden="true"></i>Apr 2024 – present</span>
-          <span class="meta-chip"><i class="ti ti-building" aria-hidden="true"></i>Automotive</span>
+        <div class="stat-card">
+            <div class="stat-number">8+</div>
+            <div class="stat-label">Major Projects</div>
         </div>
-        <p class="card-desc">Central system for operative certification, streamlining daily business by automating workflows and managing data exchange across business units.</p>
-        <div class="card-resp">
-          <ul>
-            <li>Developing APIs, Azure Functions, Logic Apps, and other Azure components</li>
-            <li>Using Azure Cloud Services: Storage, App Insights, Function Apps, Key Vault, Service Bus, SQL, Cosmos DB</li>
-            <li>Creating CI/CD Pipelines, Black Duck scans, and automation infrastructure services</li>
-            <li>Working on AI implementation: planning, efficient token usage, and deployment</li>
-            <li>Participating in PI planning, demos, sprint ceremonies with onsite and offsite teams</li>
-          </ul>
+        <div class="stat-card">
+            <div class="stat-number">5+</div>
+            <div class="stat-label">Companies</div>
         </div>
-        <div class="tech-pills">
-          <span class="tech-pill">C#</span><span class="tech-pill">.NET Core 8</span><span class="tech-pill">Web API</span>
-          <span class="tech-pill">Azure</span><span class="tech-pill">Entity Framework</span><span class="tech-pill">Swagger</span>
-          <span class="tech-pill">PostgreSQL</span><span class="tech-pill">GitHub Copilot</span><span class="tech-pill">Devin AI</span>
+        <div class="stat-card">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Commitment</div>
         </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Sirius CRM – Mercedes-Benz India & Europe</div>
-        <div class="card-sub">Kyndryl · Senior Azure Developer (Senior Associate II)</div>
-        <div class="card-meta">
-          <span class="meta-chip"><i class="ti ti-calendar" aria-hidden="true"></i>Jan 2023 – Mar 2024</span>
-          <span class="meta-chip"><i class="ti ti-building" aria-hidden="true"></i>Automotive / CRM</span>
-        </div>
-        <p class="card-desc">Azure backend for a Salesforce-based CRM platform supporting Mercedes-Benz call center operations across India and Europe, including dealer management, reporting, and system integrations.</p>
-        <div class="tech-pills">
-          <span class="tech-pill">C#</span><span class="tech-pill">ASP.NET Core 6</span><span class="tech-pill">Azure Functions</span>
-          <span class="tech-pill">Logic Apps</span><span class="tech-pill">Service Bus</span><span class="tech-pill">Cosmos DB</span>
-          <span class="tech-pill">PostgreSQL</span><span class="tech-pill">React</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Ratabase360 – Insurance Rating Engine</div>
-        <div class="card-sub">CGI · Software Developer</div>
-        <div class="card-meta">
-          <span class="meta-chip"><i class="ti ti-calendar" aria-hidden="true"></i>Mar 2020 – Nov 2022</span>
-          <span class="meta-chip"><i class="ti ti-building" aria-hidden="true"></i>Insurance / Finance</span>
-        </div>
-        <p class="card-desc">High-performance insurance rating engine used by US insurance providers to configure complex rating rules and process millions of transactions efficiently.</p>
-        <div class="tech-pills">
-          <span class="tech-pill">C#</span><span class="tech-pill">.NET Core 3.1</span><span class="tech-pill">SQL Server</span>
-          <span class="tech-pill">Azure</span><span class="tech-pill">SonarLint</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Payment Request – UK Payment Platform</div>
-        <div class="card-sub">CGI · Software Engineer</div>
-        <div class="card-meta">
-          <span class="meta-chip"><i class="ti ti-calendar" aria-hidden="true"></i>Dec 2018 – Feb 2020</span>
-          <span class="meta-chip"><i class="ti ti-building" aria-hidden="true"></i>Fintech / UK</span>
-        </div>
-        <p class="card-desc">Secure payment platform for UK-based clients enabling payment requests and bill management through bank-integrated APIs. Built cloud-native microservices and implemented IdentityServer4 authentication.</p>
-        <div class="tech-pills">
-          <span class="tech-pill">C#</span><span class="tech-pill">ASP.NET Core 2.2</span><span class="tech-pill">Azure</span>
-          <span class="tech-pill">IdentityServer4</span><span class="tech-pill">SonarQube</span><span class="tech-pill">Swagger</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">PGM – Private Garage Motor</div>
-        <div class="card-sub">Autosense Private Limited · Software Developer</div>
-        <div class="card-meta">
-          <span class="meta-chip"><i class="ti ti-building" aria-hidden="true"></i>Automotive / TVS Motor</span>
-        </div>
-        <p class="card-desc">Web-based application for TVS Motor dealers and private garages to manage vehicle awareness programs, product promotions, and service-related events with role-based modules.</p>
-        <div class="tech-pills">
-          <span class="tech-pill">ASP.NET</span><span class="tech-pill">C#</span><span class="tech-pill">.NET 4.5</span>
-          <span class="tech-pill">SQL Server</span><span class="tech-pill">Bootstrap</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Service Marketing Suite & Loyalty Program</div>
-        <div class="card-sub">Autosense Private Limited · Software Developer</div>
-        <div class="card-meta">
-          <span class="meta-chip"><i class="ti ti-building" aria-hidden="true"></i>Automotive CRM</span>
-        </div>
-        <p class="card-desc">Service Marketing Suite for OEM after-sales and Loyalty CRM platform (TVSMERAFRND.COM) for customers and employees. Contributed to CRM modules, ETL processes, reporting solutions, and API development.</p>
-        <div class="tech-pills">
-          <span class="tech-pill">ASP.NET MVC</span><span class="tech-pill">WCF</span><span class="tech-pill">SSRS</span>
-          <span class="tech-pill">SSIS</span><span class="tech-pill">SQL Server</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Online Lead Management & Tracking CRM</div>
-        <div class="card-sub">Autosense Private Limited · Junior Software Developer</div>
-        <div class="card-meta">
-          <span class="meta-chip"><i class="ti ti-building" aria-hidden="true"></i>Two-wheeler / CRM</span>
-        </div>
-        <p class="card-desc">CRM for a leading Indian two-wheeler company to streamline call center operations, lead tracking, and resource planning.</p>
-        <div class="tech-pills">
-          <span class="tech-pill">C#</span><span class="tech-pill">.NET 4.5</span><span class="tech-pill">SQL Server</span>
-        </div>
-      </div>
     </section>
 
-    <!-- SKILLS -->
-    <section id="skills" class="section">
-      <h2 class="section-title">Technical skills</h2>
-      <p class="section-sub">Expertise across cloud, backend, databases, and tooling</p>
+    <!-- Career Timeline -->
+    <section id="timeline" class="timeline-section">
+        <h2 class="section-title">Career Journey</h2>
+        <div class="timeline">
+            <!-- Current Role -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div style="display: flex; gap: 1rem; align-items: start; margin-bottom: 1rem;">
+                        <div class="company-logo kyndryl">KYNDRYL</div>
+                        <div class="company-logo capgemini">CGI</div>
+                    </div>
+                    <div class="timeline-date">Apr 2024 - Present</div>
+                    <div class="timeline-company">Kyndryl / Capgemini</div>
+                    <div class="timeline-role">Senior Software Developer (Manager - C2)</div>
+                    <div class="timeline-description">
+                        Leading the ZST Application project for Mercedes-Benz (India & Germany regions). Architecting scalable Azure solutions, developing APIs, Azure Functions, Logic Apps, and implementing enterprise integrations. Managing CI/CD pipelines, implementing AI solutions, and collaborating across Agile teams.
+                    </div>
+                    <span class="company-badge">Current Role 🔴</span>
+                </div>
+            </div>
 
-      <div class="skills-grid">
-        <div class="skill-group">
-          <div class="skill-group-title"><i class="ti ti-cloud" aria-hidden="true"></i> Cloud – Microsoft Azure</div>
-          <div class="skill-item">Storage Accounts</div>
-          <div class="skill-item">Active Directory</div>
-          <div class="skill-item">Application Insights</div>
-          <div class="skill-item">Key Vault</div>
-          <div class="skill-item">API Management</div>
-          <div class="skill-item">Function Apps</div>
-          <div class="skill-item">Service Bus</div>
-          <div class="skill-item">Logic Apps</div>
-          <div class="skill-item">Azure DevOps</div>
-          <div class="skill-item">Cosmos DB</div>
-        </div>
+            <!-- Kyndryl -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div style="margin-bottom: 1rem;">
+                        <div class="company-logo kyndryl">KYNDRYL</div>
+                    </div>
+                    <div class="timeline-date">Jan 2023 - Mar 2024</div>
+                    <div class="timeline-company">Kyndryl</div>
+                    <div class="timeline-role">Senior Azure Developer (Senior Associate II)</div>
+                    <div class="timeline-description">
+                        Developed and maintained the Azure backend for Sirius CRM platform supporting Mercedes-Benz call center operations across India and Europe. Designed APIs, implemented microservices, and managed cloud infrastructure.
+                    </div>
+                    <span class="company-badge">13 months</span>
+                </div>
+            </div>
 
-        <div class="skill-group">
-          <div class="skill-group-title"><i class="ti ti-code" aria-hidden="true"></i> Languages & Frameworks</div>
-          <div class="skill-item">C# (primary)</div>
-          <div class="skill-item">ASP.NET / .NET Core</div>
-          <div class="skill-item">Web API / REST</div>
-          <div class="skill-item">Entity Framework</div>
-          <div class="skill-item">LINQ</div>
-          <div class="skill-item">React (learning)</div>
-          <div class="skill-item">JavaScript / jQuery</div>
-          <div class="skill-item">HTML / CSS</div>
-        </div>
+            <!-- CGI -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div style="margin-bottom: 1rem;">
+                        <div class="company-logo cgi">CGI</div>
+                    </div>
+                    <div class="timeline-date">Dec 2018 - Nov 2022</div>
+                    <div class="timeline-company">CGI</div>
+                    <div class="timeline-role">Software Developer & Software Engineer</div>
+                    <div class="timeline-description">
+                        Contributed to Ratabase360 insurance rating engine and Payment Request platform. Developed microservices, implemented secure APIs, and managed cloud deployments. Recognized with Bronze Award and Star of the Month.
+                    </div>
+                    <span class="company-badge">4 years 1 month</span>
+                </div>
+            </div>
 
-        <div class="skill-group">
-          <div class="skill-group-title"><i class="ti ti-database" aria-hidden="true"></i> Databases</div>
-          <div class="skill-item">MS SQL Server</div>
-          <div class="skill-item">PostgreSQL</div>
-          <div class="skill-item">Redis Cache</div>
-          <div class="skill-item">Cosmos DB</div>
-          <div class="skill-item">SSRS / SSIS</div>
+            <!-- Autosense -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div style="margin-bottom: 1rem;">
+                        <div class="company-logo autosense">AS</div>
+                    </div>
+                    <div class="timeline-date">Sep 2016 - Nov 2018</div>
+                    <div class="timeline-company">Autosense Private Limited</div>
+                    <div class="timeline-role">Software Developer</div>
+                    <div class="timeline-description">
+                        Developed web applications for automotive sector. Built PGM (Private Garage Motor), Service Marketing Suite, and Loyalty CRM platforms. Worked extensively with ASP.NET and SQL Server.
+                    </div>
+                    <span class="company-badge">2 years 1 month</span>
+                </div>
+            </div>
         </div>
-
-        <div class="skill-group">
-          <div class="skill-group-title"><i class="ti ti-tool" aria-hidden="true"></i> Tools & DevOps</div>
-          <div class="skill-item">Visual Studio / VS Code</div>
-          <div class="skill-item">Git / Git Flow / Bitbucket</div>
-          <div class="skill-item">Swagger / Postman</div>
-          <div class="skill-item">SonarQube / SonarLint</div>
-          <div class="skill-item">GitHub Copilot</div>
-          <div class="skill-item">Kafka (Producer/Consumer)</div>
-          <div class="skill-item">XUnit / Moq</div>
-          <div class="skill-item">Black Duck</div>
-        </div>
-      </div>
     </section>
 
-    <!-- CAREER TIMELINE -->
-    <section id="career" class="section">
-      <h2 class="section-title">Career timeline</h2>
-      <p class="section-sub">9.8+ years across 4 organizations</p>
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-image">🚗🔧⚙️</div>
+                <div class="project-card-content">
+                    <div style="margin-bottom: 1rem;">
+                        <div class="company-logo kyndryl" style="display: inline-block; margin-right: 0.5rem;">KYNDRYL</div>
+                        <div class="company-logo capgemini" style="display: inline-block;">CGI</div>
+                    </div>
+                    <div class="project-title">ZST Application</div>
+                    <div class="project-company">Kyndryl / Capgemini</div>
+                    <div class="project-duration">Apr 2024 - Present</div>
+                    <div class="project-description">
+                        Central system for operative certification at Mercedes-Benz. Streamlines workflows and manages data exchange across business units through enterprise APIs and microservices.
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">C# .NET 8</span>
+                        <span class="tech-tag">Azure</span>
+                        <span class="tech-tag">APIs</span>
+                        <span class="tech-tag">Azure Functions</span>
+                    </div>
+                </div>
+            </div>
 
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-company">Kyndryl / Capgemini</div>
-          <div class="tl-role">Senior Software Developer (Manager C2)</div>
-          <div class="tl-period">Apr 2024 – Present · Bangalore</div>
-          <p style="font-size:13px;color:var(--muted);margin-top:4px;">Mercedes-Benz ZST Application – Azure-native development, AI implementation</p>
-        </div>
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-image">📞💼🎯</div>
+                <div class="project-card-content">
+                    <div style="margin-bottom: 1rem;">
+                        <div class="company-logo kyndryl">KYNDRYL</div>
+                    </div>
+                    <div class="project-title">Sirius CRM</div>
+                    <div class="project-company">Kyndryl</div>
+                    <div class="project-duration">Jan 2023 - Mar 2024</div>
+                    <div class="project-description">
+                        Salesforce-based CRM platform for Mercedes-Benz call center operations across India and Europe. Designed and implemented scalable Azure backend solutions.
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">C# ASP.NET Core 6</span>
+                        <span class="tech-tag">Azure</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Logic Apps</span>
+                    </div>
+                </div>
+            </div>
 
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-company">Kyndryl</div>
-          <div class="tl-role">Senior Azure Developer (Senior Associate II)</div>
-          <div class="tl-period">Jan 2023 – Mar 2024 · Bangalore</div>
-          <p style="font-size:13px;color:var(--muted);margin-top:4px;">Mercedes-Benz Sirius CRM – Salesforce CRM backend for India & Europe</p>
-        </div>
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div class="project-image">📊💹⚡</div>
+                <div class="project-card-content">
+                    <div style="margin-bottom: 1rem;">
+                        <div class="company-logo cgi">CGI</div>
+                    </div>
+                    <div class="project-title">Ratabase360</div>
+                    <div class="project-company">CGI</div>
+                    <div class="project-duration">Mar 2020 - Nov 2022</div>
+                    <div class="project-description">
+                        High-performance insurance rating engine for US insurance providers. Processed millions of transactions with complex rating rule configurations.
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">C# .NET Core 3.1</span>
+                        <span class="tech-tag">SQL Server</span>
+                        <span class="tech-tag">Azure</span>
+                        <span class="tech-tag">SonarLint</span>
+                    </div>
+                </div>
+            </div>
 
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-company">CGI</div>
-          <div class="tl-role">Software Developer → Software Engineer</div>
-          <div class="tl-period">Dec 2018 – Nov 2022 · 4 yrs 1 mo</div>
-          <p style="font-size:13px;color:var(--muted);margin-top:4px;">Ratabase360 (US Insurance) & UK Payment Platform. Won Bronze, Key Contributor & Star of Month awards.</p>
-        </div>
+            <!-- Project 4 -->
+            <div class="project-card">
+                <div class="project-image">💳🔐💰</div>
+                <div class="project-card-content">
+                    <div style="margin-bottom: 1rem;">
+                        <div class="company-logo cgi">CGI</div>
+                    </div>
+                    <div class="project-title">Payment Request Platform</div>
+                    <div class="project-company">CGI</div>
+                    <div class="project-duration">Dec 2018 - Feb 2020</div>
+                    <div class="project-description">
+                        Secure payment platform for UK clients enabling payment requests and bill management through bank-integrated APIs and microservices.
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">C# ASP.NET Core 2.2</span>
+                        <span class="tech-tag">IdentityServer4</span>
+                        <span class="tech-tag">Azure</span>
+                        <span class="tech-tag">Microservices</span>
+                    </div>
+                </div>
+            </div>
 
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-company">Autosense Private Limited</div>
-          <div class="tl-role">Junior → Software Developer</div>
-          <div class="tl-period">2016 – Dec 2018 · 2 yrs 1 mo</div>
-          <p style="font-size:13px;color:var(--muted);margin-top:4px;">PGM, Service Marketing Suite, Loyalty CRM & Lead Management for TVS Motor ecosystem</p>
+            <!-- Project 5 -->
+            <div class="project-card">
+                <div class="project-image">🏍️🔧📋</div>
+                <div class="project-card-content">
+                    <div style="margin-bottom: 1rem;">
+                        <div class="company-logo autosense">AS</div>
+                    </div>
+                    <div class="project-title">PGM & Service Marketing Suite</div>
+                    <div class="project-company">Autosense</div>
+                    <div class="project-duration">2016 - 2018</div>
+                    <div class="project-description">
+                        Web applications for TVS Motor dealers and service providers. Managed awareness programs, promotions, and service-related events with reporting solutions.
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">ASP.NET MVC</span>
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">SQL Server</span>
+                        <span class="tech-tag">Bootstrap</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 6 -->
+            <div class="project-card">
+                <div class="project-image">🎟️👥💝</div>
+                <div class="project-card-content">
+                    <div style="margin-bottom: 1rem;">
+                        <div class="company-logo autosense">AS</div>
+                    </div>
+                    <div class="project-title">Loyalty CRM Programs</div>
+                    <div class="project-company">Autosense</div>
+                    <div class="project-duration">2016 - 2018</div>
+                    <div class="project-description">
+                        Loyalty platforms including TVSMERAFRND.COM. Developed customer and employee engagement modules with seamless integration capabilities.
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">ASP.NET</span>
+                        <span class="tech-tag">C# .NET 4.5</span>
+                        <span class="tech-tag">SQL Server</span>
+                        <span class="tech-tag">APIs</span>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- AWARDS -->
-    <section id="awards" class="section">
-      <h2 class="section-title">Awards & recognition</h2>
-      <p class="section-sub">Recognized at CGI for exceptional performance</p>
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <h2 class="section-title">Technical Expertise</h2>
+        <div class="skills-grid">
+            <!-- Cloud & DevOps -->
+            <div class="skill-category">
+                <h3>☁️ Cloud & Azure</h3>
+                <div class="skill-item">
+                    <span class="skill-name">Azure Services</span>
+                    <span class="skill-level">Expert</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">Azure Functions</span>
+                    <span class="skill-level">Expert</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">Logic Apps</span>
+                    <span class="skill-level">Expert</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">Azure DevOps</span>
+                    <span class="skill-level">Advanced</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">Service Bus & Event Hub</span>
+                    <span class="skill-level">Expert</span>
+                </div>
+            </div>
 
-      <div class="award-card">
-        <div class="award-icon"><i class="ti ti-medal" aria-hidden="true"></i></div>
-        <div>
-          <div class="award-title">Bronze Award</div>
-          <div class="award-org">CGI</div>
-          <div class="award-desc">Recognized by manager for working effectively on critical modules within the project.</div>
-        </div>
-      </div>
+            <!-- Backend Development -->
+            <div class="skill-category">
+                <h3>⚙️ Backend Development</h3>
+                <div class="skill-item">
+                    <span class="skill-name">C# & .NET</span>
+                    <span class="skill-level">Expert</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">ASP.NET Core</span>
+                    <span class="skill-level">Expert</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">Web API & REST</span>
+                    <span class="skill-level">Expert</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">Microservices</span>
+                    <span class="skill-level">Advanced</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">Entity Framework</span>
+                    <span class="skill-level">Expert</span>
+                </div>
+            </div>
 
-      <div class="award-card">
-        <div class="award-icon"><i class="ti ti-star" aria-hidden="true"></i></div>
-        <div>
-          <div class="award-title">Key Contributor Award</div>
-          <div class="award-org">CGI</div>
-          <div class="award-desc">Recognized by manager for exceptional contributions to the team.</div>
-        </div>
-      </div>
+            <!-- Databases -->
+            <div class="skill-category">
+                <h3>🗄️ Databases & Caching</h3>
+                <div class="skill-item">
+                    <span class="skill-name">SQL Server</span>
+                    <span class="skill-level">Expert</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">PostgreSQL</span>
+                    <span class="skill-level">Advanced</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">Cosmos DB</span>
+                    <span class="skill-level">Advanced</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">Redis Caching</span>
+                    <span class="skill-level">Advanced</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">Kafka & Events</span>
+                    <span class="skill-level">Advanced</span>
+                </div>
+            </div>
 
-      <div class="award-card">
-        <div class="award-icon"><i class="ti ti-sun" aria-hidden="true"></i></div>
-        <div>
-          <div class="award-title">Star of the Month</div>
-          <div class="award-org">CGI</div>
-          <div class="award-desc">Recognized by manager for splendid efforts and impact within the team.</div>
+            <!-- Tools & Practices -->
+            <div class="skill-category">
+                <h3>🛠️ Tools & Practices</h3>
+                <div class="skill-item">
+                    <span class="skill-name">Git & GitFlow</span>
+                    <span class="skill-level">Expert</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">CI/CD Pipelines</span>
+                    <span class="skill-level">Advanced</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">GitHub Copilot & AI</span>
+                    <span class="skill-level">Advanced</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">SonarQube</span>
+                    <span class="skill-level">Advanced</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">Agile & Scrum</span>
+                    <span class="skill-level">Expert</span>
+                </div>
+            </div>
+
+            <!-- Architecture -->
+            <div class="skill-category">
+                <h3>🏗️ Architecture & Design</h3>
+                <div class="skill-item">
+                    <span class="skill-name">System Design</span>
+                    <span class="skill-level">Advanced</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">Microservices Architecture</span>
+                    <span class="skill-level">Expert</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">Cloud Architecture</span>
+                    <span class="skill-level">Advanced</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">Design Patterns</span>
+                    <span class="skill-level">Expert</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">API Design</span>
+                    <span class="skill-level">Expert</span>
+                </div>
+            </div>
+
+            <!-- Emerging Tech -->
+            <div class="skill-category">
+                <h3>🚀 Emerging Technologies</h3>
+                <div class="skill-item">
+                    <span class="skill-name">AI/GenAI Integration</span>
+                    <span class="skill-level">Advanced</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">Azure OpenAI</span>
+                    <span class="skill-level">Advanced</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">Agentic AI</span>
+                    <span class="skill-level">Intermediate</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">Token Optimization</span>
+                    <span class="skill-level">Intermediate</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">React & Frontend</span>
+                    <span class="skill-level">Intermediate</span>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- EDUCATION -->
-    <section id="education" class="section">
-      <h2 class="section-title">Education & certifications</h2>
-      <p class="section-sub">B.Tech in Information Technology plus professional Azure certifications</p>
-
-      <div class="card">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
-          <div>
-            <div class="card-title">Bachelor of Technology (B.Tech) – Information Technology</div>
-            <div class="card-sub">DIATM, West Bengal University of Technology</div>
-          </div>
-          <span class="badge accent">CGPA 7.76</span>
+    <!-- Awards Section -->
+    <section id="awards" class="awards-section">
+        <h2 class="section-title">Recognition & Awards</h2>
+        <div class="awards-grid">
+            <div class="award-card">
+                <div class="award-icon">🥉</div>
+                <div class="award-title">Bronze Award</div>
+                <div class="award-company">CGI</div>
+            </div>
+            <div class="award-card">
+                <div class="award-icon">⭐</div>
+                <div class="award-title">Star of the Month</div>
+                <div class="award-company">CGI</div>
+            </div>
+            <div class="award-card">
+                <div class="award-icon">🌟</div>
+                <div class="award-title">Key Contributor Award</div>
+                <div class="award-company">CGI</div>
+            </div>
+            <div class="award-card">
+                <div class="award-icon">🎓</div>
+                <div class="award-title">Microsoft Azure Fundamentals</div>
+                <div class="award-company">AZ-900 Certified</div>
+            </div>
         </div>
-        <div class="card-meta" style="margin-top:8px;">
-          <span class="meta-chip"><i class="ti ti-calendar" aria-hidden="true"></i>2015</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
-          <div>
-            <div class="card-title">Higher Secondary (12th) – Science (PCM)</div>
-            <div class="card-sub">G.L.A. College, Jharkhand Academic Council, Ranchi</div>
-          </div>
-          <span class="badge">64.8%</span>
-        </div>
-        <div class="card-meta" style="margin-top:8px;">
-          <span class="meta-chip"><i class="ti ti-calendar" aria-hidden="true"></i>2009</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
-          <div>
-            <div class="card-title">Secondary (10th)</div>
-            <div class="card-sub">Giriwar High School, Jharkhand Academic Council, Ranchi</div>
-          </div>
-          <span class="badge">66.4%</span>
-        </div>
-        <div class="card-meta" style="margin-top:8px;">
-          <span class="meta-chip"><i class="ti ti-calendar" aria-hidden="true"></i>2007</span>
-        </div>
-      </div>
-
-      <div class="divider"></div>
-      <h3 style="font-size:16px;font-weight:500;margin-bottom:1rem;">Certifications</h3>
-
-      <div class="award-card">
-        <div class="award-icon" style="background:var(--accent-light);color:var(--accent);"><i class="ti ti-certificate" aria-hidden="true"></i></div>
-        <div>
-          <div class="award-title">Microsoft Azure Fundamentals (AZ-900)</div>
-          <div class="award-org">Microsoft · ID: 990025811</div>
-          <div class="award-desc">Completed 19th Oct 2021</div>
-        </div>
-      </div>
-
-      <div class="award-card">
-        <div class="award-icon" style="background:var(--purple-light);color:var(--purple);"><i class="ti ti-certificate" aria-hidden="true"></i></div>
-        <div>
-          <div class="award-title">Developing Solutions for Microsoft Azure (AZ-204)</div>
-          <div class="award-org">Udemy</div>
-          <div class="award-desc">Certificate of completion for AZ-204 course</div>
-        </div>
-      </div>
-
-      <div class="divider"></div>
-      <h3 style="font-size:16px;font-weight:500;margin-bottom:1rem;">Training & workshops</h3>
-
-      <div class="card">
-        <div class="card-title">Java Programming</div>
-        <div class="card-sub">Ayush Solution, Durgapur · 3 months</div>
-      </div>
-      <div class="card">
-        <div class="card-title">ASP.NET using C# – Project Based Training</div>
-        <div class="card-sub">CMC Limited (A TATA Enterprise), Kolkata</div>
-      </div>
     </section>
 
-  </main>
-</div>
-
-<script>
-function switchTab(id, btn) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  btn.classList.add('active');
-}
-</script>
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/thenawalsharma/" target="_blank">LinkedIn</a>
+            <a href="https://github.com/thenawalsharma" target="_blank">GitHub</a>
+            <a href="mailto:thenawalsharma@email.com">Email</a>
+        </div>
+        <p>&copy; 2024 Nawal Sharma | Senior .NET Azure Developer | Architect</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #93c5fd;">
+            📍 Bangalore, India | 🎯 Available for Senior Developer Roles at MNC Product Companies
+        </p>
+    </footer>
 </body>
 </html>
